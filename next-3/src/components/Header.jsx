@@ -17,9 +17,9 @@ function Header() {
                 backgroundColor: "black"
             }}>
                 <li><Link style={{ color: path == "/" ? "blue" : "white", textDecoration: "none" }} href="/">Home</Link></li>
-                <li><Link style={{ color: path == "/support" ? "blue" : "white", textDecoration: "none" }} href="/support">Support</Link></li>
-                <li><Link style={{ color: path == "/store" ? "blue" : "white", textDecoration: "none" }} href="/store">Store</Link></li>
-                <li><Link style={{ color: path == "/about" ? "blue" : "white", textDecoration: "none" }} href="/about">About</Link></li>
+                <li><Link style={{ color: path == "/posts" ? "blue" : "white", textDecoration: "none" }} href="/posts">Posts</Link></li>
+                <li><Link style={{ color: path == "/users" ? "blue" : "white", textDecoration: "none" }} href="/users">Users</Link></li>
+                <li><Link style={{ color: path == "/recipes" ? "blue" : "white", textDecoration: "none" }} href="/recipes">Recipes</Link></li>
             </ul>
         </header>
     );
