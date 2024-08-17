@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 
 function Header() {
     const path = usePathname()
-    console.log(path);
+
     return (
         <header>
             <ul style={{
