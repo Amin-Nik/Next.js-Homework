@@ -1,8 +1,9 @@
 "use client"
 
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-function Card({ data, PNum = 100, height = 500, btnTrue = true, navigateTo }) {
+function Card({ data, PNum = 100, height = 500, btnTrue = true, navigateTo, image = false }) {
 
     const router = useRouter();
     const clickHandler = () => router.push(navigateTo);
@@ -10,6 +11,7 @@ function Card({ data, PNum = 100, height = 500, btnTrue = true, navigateTo }) {
     return (
         <section style={{ margin: 10, padding: 5, border: "solid", width: 400, height: height, overflow: "scroll" }}>
             <div style={{ display: "flex", flexDirection: "column", flexWrap: "wrap", justifyContent: "center", alignItems: "center" }}>
+                {image && <Image unoptimized src={data.image} alt={data.id} width={0} height={0} style={{ width: "100%", height: "auto" }} />}
                 {Object.entries(data).map((element, index) => {
                     if (index < PNum) {
                         if (element[0] != "reactions") {

@@ -1,6 +1,11 @@
 import { Suspense } from 'react';
 import { fetchData } from '../utils/dataFetcher';
 
+export const metadata = {
+  title: "Home",
+  description: "this is home page"
+}
+
 export default async function Home() {
 
   const userData = await fetchData("https://dummyjson.com/users");

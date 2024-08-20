@@ -1,5 +1,16 @@
 import { fetchData } from "@/utils/dataFetcher";
-import Card from "@/components/Card";
+import dynamic from "next/dynamic";
+
+export async function generateMetadata({ params }) {
+    return {
+        title: `User number: ${params.id}`,
+        description: `this is users page id: ${params.id}`
+    }
+}
+
+const DynamicCard = dynamic(() => import("@/components/Card"), {
+    loading: () => <p>Loading...</p>
+});
 
 async function idPage({ params }) {
     const userData = await fetchData(`https://dummyjson.com/users/${params.id}`);
@@ -9,7 +20,7 @@ async function idPage({ params }) {
             <h1 style={{ textAlign: "center" }}>this is users page id:{params.id}</h1>
 
             <section style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center" }}>
-                <Card data={userData} height={500} key={userData.id} btnTrue={false} />
+                <DynamicCard image={true} data={userData} height={500} key={userData.id} btnTrue={false} />
             </section>
         </>
     );

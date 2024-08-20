@@ -1,5 +1,14 @@
 import { fetchData } from "@/utils/dataFetcher";
-import Card from "@/components/Card";
+import dynamic from "next/dynamic";
+
+export const metadata = {
+    title: "Posts",
+    description: "this is posts page"
+}
+
+const DynamicCard = dynamic(() => import("@/components/Card"), {
+    loading: () => <p>Loading...</p>
+});
 
 async function posts() {
     const postData = await fetchData("https://dummyjson.com/posts");
@@ -10,7 +19,7 @@ async function posts() {
 
             <section style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center" }}>
                 {postData.posts.map(data => {
-                    return <Card data={data} PNum={3} height={500} key={data.id} navigateTo={`/posts/${data.id}`} />
+                    return <DynamicCard data={data} PNum={3} height={500} key={data.id} navigateTo={`/posts/${data.id}`} />
                 })}
             </section>
         </>
