@@ -13,7 +13,7 @@ const DynamicCard = dynamic(() => import("@/components/Card"), {
 });
 
 async function idPage({ params }) {
-    const recipesData = await fetchData(`https://dummyjson.com/recipes/${params.id}`);
+    const recipesData = await fetchData(`http://localhost:3000/api/recipes/${params.id}`);
 
     return (
         <>

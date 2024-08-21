@@ -11,7 +11,7 @@ const DynamicCard = dynamic(() => import("@/components/Card"), {
 });
 
 async function users() {
-    const userData = await fetchData("https://dummyjson.com/users");
+    const userData = await fetchData("http://localhost:3000/api/users");
 
     return (
         <>

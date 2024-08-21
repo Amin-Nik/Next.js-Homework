@@ -8,9 +8,9 @@ export const metadata = {
 
 export default async function Home() {
 
-  const userData = await fetchData("https://dummyjson.com/users");
-  const postData = await fetchData("https://dummyjson.com/posts");
-  const recipeData = await fetchData("https://dummyjson.com/recipes");
+  const userData = await fetchData("http://localhost:3000/api/users");
+  const postData = await fetchData("http://localhost:3000/api/posts");
+  const recipeData = await fetchData("http://localhost:3000/api/recipes");
 
   return (
     <>
