@@ -1,3 +1,4 @@
+import Form from "@/components/Form";
 import { fetchData } from "@/utils/dataFetcher";
 import dynamic from "next/dynamic";
 
@@ -16,10 +17,11 @@ async function recipes() {
     return (
         <>
             <h1 style={{ textAlign: "center" }}>this is recipes page</h1>
+            <Form name="name" btnText="Post" />
 
             <section style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center" }}>
                 {recipeData.recipes.map(data => {
-                    return <DynamicCard data={data} PNum={4} height={600} key={data.id} navigateTo={`/recipes/${data.id}`} image={true} />
+                    return <DynamicCard isAdmin={true} data={data} PNum={4} height={600} key={data.id} navigateTo={`/admin/recipes/${data.id}`} image={true} />
                 })}
             </section>
         </>
