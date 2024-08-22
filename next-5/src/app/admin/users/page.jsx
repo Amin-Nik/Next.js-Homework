@@ -17,11 +17,11 @@ async function users() {
     return (
         <>
             <h1 style={{ textAlign: "center" }}>this is users page</h1>
-            <Form name="firstName" btnText="Post" />
+            <Form name="firstName" btnText="Post" url="http://localhost:3000/api/users" method="post" />
 
             <section style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center" }}>
                 {userData.users.map(data => {
-                    return <DynamicCard isAdmin={true} image={true} data={data} PNum={6} height={400} key={data.id} navigateTo={`/admin/users/${data.id}`} />
+                    return <DynamicCard deleteUrl={`http://localhost:3000/api/users/${data.id}`} isAdmin={true} image={true} data={data} PNum={6} height={400} key={data.id} navigateTo={`/admin/users/${data.id}`} />
                 })}
             </section>
         </>

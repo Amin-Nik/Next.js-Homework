@@ -17,11 +17,11 @@ async function posts() {
     return (
         <>
             <h1 style={{ textAlign: "center" }}>this is posts page</h1>
-            <Form name="title" btnText="Post" />
+            <Form name="title" btnText="Post" url="http://localhost:3000/api/posts" method="post" />
 
             <section style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center" }}>
                 {postData.posts.map(data => {
-                    return <DynamicCard isAdmin={true} data={data} PNum={3} height={500} key={data.id} navigateTo={`/admin/posts/${data.id}`} />
+                    return <DynamicCard deleteUrl={`http://localhost:3000/api/posts/${data.id}`} isAdmin={true} data={data} PNum={3} height={500} key={data.id} navigateTo={`/admin/posts/${data.id}`} />
                 })}
             </section>
         </>

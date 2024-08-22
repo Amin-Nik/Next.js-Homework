@@ -19,7 +19,7 @@ async function idPage({ params }) {
     return (
         <>
             <h1 style={{ textAlign: "center" }}>this is posts page id:{params.id}</h1>
-            <Form name="title" btnText="Edit" />
+            <Form name="title" btnText="Edit" url={`http://localhost:3000/api/posts/${params.id}`} method="patch" id={params.id} />
 
             <section style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center" }}>
                 <DynamicCard isAdmin={true} data={postData} height={500} key={postData.id} btnTrue={false} />

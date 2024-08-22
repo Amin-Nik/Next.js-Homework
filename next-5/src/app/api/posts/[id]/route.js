@@ -13,7 +13,6 @@ export async function PATCH(req, { params }) {
 }
 
 export async function DELETE(req, { params }) {
-    const body = await req.json();
     const postIndex = data.posts.findIndex((post) => post.id == params.id);
     data.posts.splice(postIndex, 1);
     return Response.json({ message: "Deleted" });
